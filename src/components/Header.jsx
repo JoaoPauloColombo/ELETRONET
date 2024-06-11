@@ -1,5 +1,6 @@
 import '../css/Header.css'
 import Logo from '../assets/images/logo.png'
+import { Link } from 'react-router-dom';
 
 function App() {
 
@@ -9,15 +10,19 @@ function App() {
         <img src={Logo} alt="" />
         <nav className="nav-area">
           <ul className="menu">
-            <li><a href="#">HOME</a>
+            <li><Link to="/">HOME</Link>
               <ul>
               </ul>
             </li>
-            <li><a href="#">PRODUTOS</a>
+            <li><Link to="/produtos">PRODUTOS</Link>
               <ul>
               </ul>
             </li>
-            <li><a href="#">SERVIÇOS</a>
+            <li><Link to="/carrinho">CARRINHO</Link>
+              <ul>
+              </ul>
+            </li>
+            <li><Link to="/cadastro">CADASTRO</Link>
               <ul>
               </ul>
             </li>

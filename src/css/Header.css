@@ -108,7 +108,7 @@ header {
 }
 
 .nav-area ul li:hover a {
-  background: rgb(8, 156, 201);
+  background: rgb(6, 102, 131);
   opacity: 1;
   visibility: visible;
   top: 100%;
@@ -282,5 +282,113 @@ header {
   }
   .card {
       margin-top: 5vh;
+  }
+}
+/* Tablet */
+@media (max-width: 768px) {
+  header{
+      height: 60vh;
+  }
+  .header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header img {
+    margin-bottom: 1rem;
+  }
+
+  .searchbar {
+    left: 0;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .icon{
+      margin-left: 1vh;
+  }
+
+  .menu {
+    position: static;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu li {
+    text-align: center;
+  }
+
+  .nav-area ul li a {
+    padding: 10px 20px;
+  }
+
+  .nav-area ul ul {
+    position: static;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .nav-area ul li:hover>ul {
+    display: none;
+  }
+
+  .nav-area ul ul li {
+    text-align: left;
+  }
+
+  .nav-area ul ul li a {
+    padding: 10px;
+    background-color: white;
+  }
+
+  .nav-area ul ul ul li {
+    position: static;
+  }
+  .card {
+      margin-top: 5vh;
+  }
+}
+
+/* Smartphone */
+@media (max-width: 480px) {
+  header{
+      height: 80vh;
+  }
+  .header img {
+    width: 40vh;
+    height: 40vh;
+  }
+
+  .searchbar {
+    max-width: 80%;
+  }
+
+  .icon{
+      margin-left: 2vh;
+  }
+
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu li {
+    margin-bottom: 10px;
+  }
+
+  .nav-area ul li a {
+    padding: 5px 10px;
+  }
+
+  .nav-area ul ul {
+    padding: 10px;
+  }
+
+  .nav-area ul ul li a {
+    padding: 5px;
+  }
+
+  .card {
+      margin-top: 10vh;
   }
 }
