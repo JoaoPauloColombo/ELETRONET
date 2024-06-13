@@ -14,7 +14,7 @@ const Container = styled.div`
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   gap: 20px;
 `;
 

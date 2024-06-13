@@ -18,10 +18,6 @@ function App() {
               <ul>
               </ul>
             </li>
-            <li><Link to="/carrinho">CARRINHO</Link>
-              <ul>
-              </ul>
-            </li>
             <li><Link to="/cadastro">CADASTRO</Link>
               <ul>
               </ul>
