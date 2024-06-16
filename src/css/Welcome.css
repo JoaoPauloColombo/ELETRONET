@@ -59,7 +59,6 @@
 .paragrafo2{
     width: 300px;
     margin: 0 auto; 
-    font-family: "Playfair Display", serif;
     font-size: 20px;
     color: white;
 }
@@ -70,14 +69,12 @@
     transition: 0.80s;
 }
 #title{
-    font-family: "Kanit", sans-serif;
     text-align: center;
     margin: 10px;
     color: white;
 }
 .paragrafo{
     font-size: 20px;
-    font-family: "Playfair Display", serif;
     color: white;
     margin: 0 auto; 
 }
