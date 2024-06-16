@@ -138,7 +138,7 @@ function ProdutoForm({ fetchProdutos }) {
 
     try {
       await axios.post(
-        'http://localhost:5000/produtos',
+        'http://localhost:5000/api/produtos',
         formData,
         {
           headers: {

@@ -37,7 +37,7 @@ function ProdutoList({ refresh, setRefresh }) {
     const handleDelete = async (id) => {
         try {
             await axios.delete(
-                `http://localhost:5000/produtos/${id}`
+                `http://localhost:5000/api/produtos/${id}`
                 
                 )
             fetchProdutos()
@@ -49,7 +49,7 @@ function ProdutoList({ refresh, setRefresh }) {
     const handleEdit = async (id) => {
         try {
             const response = await axios.get(
-                `http://localhost:5000/produtos/${id}`
+                `http://localhost:5000/api/produtos/${id}`
                 
                 )
             setEditProduto(response.data)

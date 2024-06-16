@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%; 
+    background-color: white;
+    padding: 25px;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.cardProdutosVictor {
+    text-align: center;
+    width: calc(25% - 20px); 
+    background-color: white;
+    font-size: 7px;
+    color: #0062BD;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.precoNovo {
+    color: red;
+    font-size: 500px;
+}
+
+.precoAntigo {
+    color: #089CC9;
+}
+
+.cardProdutosVictor h1 {
+    padding-bottom: 10px;
+    font-size: 15px;
+}
+
+.cardProdutosVictor p {
+    font-size: 10px;
+}
+
+.cardProdutosVictor .preco {
+    font-size: 20px;
+}
+
+.cardProdutosVictor .precoAntigo {
+    font-size: 15px;
+}
+
+.cardProdutosVictor .precoNovo {
+    padding-top: 20px;
+    font-size: 25px;
+}
+
+.cardProdutosVictor img {
+    width: 150px;
+}
+
+.quadrados {
+    background-color: #089CC9;
+    padding: 10px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .cardProdutosVictor {
+        width: calc(33.33% - 20px);
+    }
+}
+
+
+@media (max-width: 480px) {
+    .cardProdutosVictor {
+        width: calc(50% - 20px);
+    }
+}
+
+
+@media (max-width: 320px) {
+    .cardProdutosVictor {
+        width: 100%;
+    }
+}
