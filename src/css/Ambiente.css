@@ -1,0 +1,48 @@
+.ambiente{
+    width: 95%;
+    height: 60%;
+    padding: 100px;
+    background-color: rgb(0, 123, 161);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    position: relative;
+    left: 2.5%;
+}
+.box-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    gap: 1.5rem;
+}
+ .box{
+    margin-bottom: 20px;
+}
+ 
+ .image{
+    overflow: hidden;
+    width: 100%;
+}
+.image img{
+    width: 70%;
+    height: 100%;
+    object-fit: cover;
+    margin-left:50px;
+    border-radius: 20px;
+}
+.box:hover .image img{
+    transform: scale(1.2);
+    border-radius: 40px;
+    transition: 0.60s;
+}
+@media (max-width:768px) {
+
+    .ambiente .box-container{
+        display: block;
+    }
+
+    .btn{
+        width: 50%;
+    }
+
+
+    }
