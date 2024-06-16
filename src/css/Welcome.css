@@ -1,0 +1,110 @@
+
+.container{
+    width: 80%; 
+    margin: 0 auto; 
+    padding: 20px;
+}
+.boxs1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    width: 100%;
+    margin: 0 auto; 
+}
+.box3{
+    width: 400px;
+    height: 500px;
+    border-radius: 15px;
+    margin: 0 auto; 
+}
+.box3:hover{
+    font-size: 17px;
+}
+#box1{
+    background-color: rgb(1, 180, 235);
+    box-shadow: 0 0 7px 0 rgb(0, 17, 255);
+}
+#criacao{
+    background-color: rgb(25, 25, 150);
+    box-shadow: 0 0 7px 0 rgb(0, 17, 255);
+}
+#servico{
+    background-color: rgb(9, 79, 172);
+    box-shadow: 0 0 7px 0 rgb(0, 17, 255);
+}
+#otimizacao{
+    background-color: rgb(32, 106, 216);
+    box-shadow: 0 0 7px 0 rgb(0, 17, 255);
+}
+#funcionamento{
+    background-color: rgb(1, 180, 235);
+    box-shadow: 0 0 7px 0 rgb(0, 17, 255);
+}
+.box1{
+    width: 400px;
+    padding: 20px;
+    margin: 20px auto; 
+    border-radius: 15px;
+}
+.box1:hover{
+    font-size: 19px;
+}
+.boxs2{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    justify-content: center; 
+}
+.paragrafo2{
+    width: 300px;
+    margin: 0 auto; 
+    font-family: "Playfair Display", serif;
+    font-size: 20px;
+    color: white;
+}
+.paragrafo2:hover{
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.80s;
+}
+#title{
+    font-family: "Kanit", sans-serif;
+    text-align: center;
+    margin: 10px;
+    color: white;
+}
+.paragrafo{
+    font-size: 20px;
+    font-family: "Playfair Display", serif;
+    color: white;
+    margin: 0 auto; 
+}
+.paragrafo:hover{
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 15px;
+    transition: 0.80s;
+}
+.box1 img{
+    width: 300px;
+    margin: 0 auto; 
+}
+@media (max-width:768px) {
+    .boxs2{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+    .boxs1{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+    .box1{
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+}

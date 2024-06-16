@@ -1,5 +1,5 @@
 import '../css/Footer.css'
-import Logo from '../assets/images/logo.png'
+import Logo from '../assets/img/logo.png'
 
 function App() {
 
