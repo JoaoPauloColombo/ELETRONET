@@ -1,69 +1,37 @@
-import styled from 'styled-components';
+import React from 'react';
 import PropTypes from 'prop-types';
-
-const Container = styled.div`
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 5em;
-    margin-top: 1.2em;
-    padding-bottom: 1.4em;
-`;
-
-const ImageContainer = styled.div`
-    width: 200px;
-    height: 300px;
-    margin: 0 10px;
-    img{
-        width:100%;
-        height:100%;
-        border-radius: 5px;
-        object-fit: cover;
-    }
-`;
-
-const Text = styled.p`
-    text-align: center;
-    margin: 10px 0;
-`;
-
-const Button = styled.button`
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-    &:hover{
-        background-color: #004B9C;  
-    }
-`;
+import '../css/ImageText.css'; // Importa o arquivo de estilos para o componente
 
 function ImageText({ images }) {
-    return (
-        <Container>
-            {images.map((image, index) => (
-                <ImageContainer key={index}>
-                    <img src={image.src} alt={image.alt} />
-                    <Text>{image.text}</Text>
-                    <Text>{image.preco}</Text>
-                    <Button>Saiba Mais</Button>
-                </ImageContainer>
-            ))}
-        </Container>
-    );
+  return (
+    <div className="container">
+      {/* Mapeia o array de imagens e renderiza um div para cada imagem */}
+      {images.map((image, index) => (
+        <div key={index} className="image-container">
+          {/* Imagem */}
+          <img src={image.src} alt={image.alt} />
+          {/* Texto associado à imagem */}
+          <p className="text">{image.text}</p>
+          {/* Preço associado à imagem */}
+          <p className="text">R${image.preco},00</p>
+          {/* Botão "Saiba Mais" (ainda não funcional neste exemplo) */}
+          <button className="button">Saiba Mais</button>
+        </div>
+      ))}
+    </div>
+  );
 }
 
+// Definição das propTypes para validar as props recebidas
 ImageText.propTypes = {
-    images: PropTypes.arrayOf(
-        PropTypes.shape({
-            src: PropTypes.string.isRequired,
-            alt: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
-        })
-    ).isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string.isRequired, // src da imagem é uma string obrigatória
+      alt: PropTypes.string.isRequired, // alt da imagem é uma string obrigatória
+      text: PropTypes.string.isRequired, // texto associado é uma string obrigatória
+      preco: PropTypes.number.isRequired // preço é um número obrigatório
+    })
+  ).isRequired, // o array de imagens é obrigatório
 };
 
 export default ImageText;

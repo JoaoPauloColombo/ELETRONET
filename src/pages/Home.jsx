@@ -1,22 +1,25 @@
+import '../css/Home.css'
 import Header from '../components/Header.jsx'
 import Footer from '../components/Footer.jsx'
-import Welcome from '../components/Welcome.jsx'
-import Ambiente from '../components/Ambiente.jsx'
-import Form from '../components/Form.jsx'
-import '../css/Home.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Ambiente from '../components/Ambiente.jsx';
+import Welcome from '../components/Welcome.jsx';
+import  Form  from '../components/Form.jsx';
+import styled from 'styled-components';
 
-function Home(){
+const HomeContainer = styled.div`
+background: #137796;
+`;
 
-  return(
-    <div>
-    <Header />
-    <Welcome/>
-    <Ambiente />
-    <Form />
-    <Footer />
-    </div>
+function Home() {
+  return (
+    <HomeContainer>
+      <Header />
+      <Welcome />
+      <Ambiente />
+      <Form />
+      <Footer />
+    </HomeContainer>
   )
 }
- 
+
 export default Home;

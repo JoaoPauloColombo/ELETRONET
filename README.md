@@ -8,10 +8,22 @@ Para começar com o eComunidades, siga estas etapas:
 
 Para fazer o deploy desse projeto rode
 
+```bash
+  cd projetofinal
+```
+
 ## Instale as dependências:
 
 ```bash
   npm install
+```
+
+```bash
+  npm install nodemon
+```
+
+```bash
+  npm install styled-components
 ```
 
 ## Inicie o servidor de desenvolvimento:
@@ -27,7 +39,10 @@ Para fazer o deploy desse projeto rode
 # Ativando o Backend:
 
  ## Em outro terminal acesse as pastas:
- 
+
+```bash
+  cd projetofinal
+```
 ```bash
   cd backend
 ```

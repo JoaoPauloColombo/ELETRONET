@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from './Header';
+import Footer from './Footer';
 
-
+// Estilos dos componentes
 const Container = styled.div`
   max-width: 1000px;
   margin: auto;
@@ -22,7 +22,7 @@ const Content = styled.div`
   width: 100%;
   gap: 20px;
   margin-bottom: 20px;
-  background: linear-gradient(to bottom, #136D58, #22c9a2);
+  background: linear-gradient(to bottom, #089cc9, #137796);
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -31,7 +31,7 @@ const Content = styled.div`
 const Image = styled.img`
   flex-shrink: 0;
   width: 300px;
-  height: auto;
+  height: 300px;
   border-radius: 10px;
 `;
 
@@ -43,19 +43,19 @@ const TextContainer = styled.div`
 
 const Text = styled.p`
   text-align: justify;
-  color:white;
+  color: white;
 `;
 
 const Title = styled.h2`
   text-align: left;
-  color:white;
+  color: white;
 `;
 
 const Button = styled.button`
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #136D58;
+  background-color: #089cc9;
   color: white;
   cursor: pointer;
   align-self: flex-start;
@@ -67,28 +67,29 @@ const Button = styled.button`
 function BioContent() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [character, setCharacter] = useState(null);
+  const [produto, setProduto] = useState(null);
 
+  // Buscar produto pelo ID
   useEffect(() => {
-    const fetchCharacter = async () => {
+    const fetchProduto = async () => {
       try {
-        const response = await axios.get(
-           `http://localhost:5000/api/produtos/${id}`
-          );
-        setCharacter(response.data);
+        const response = await axios.get(`http://localhost:5000/produtos/${id}`);
+        setProduto(response.data);
       } catch (error) {
-        console.error('Erro ao buscar produtos', error);
+        console.error('Erro ao buscar produto', error);
       }
     };
 
-    fetchCharacter();
+    fetchProduto();
   }, [id]);
 
+  // Função para voltar à página anterior
   const handleBack = () => {
     navigate(-1);
   };
 
-  if (!character) {
+  // Exibir mensagem de carregamento enquanto o produto não for carregado
+  if (!produto) {
     return <div>Carregando...</div>;
   }
 
@@ -97,14 +98,11 @@ function BioContent() {
       <Header />
       <Container>
         <Content>
-          <Image src={
-            `http:localhost:5000/uploads/${character.foto}`
-            
-            } alt={character.nome} />
+          <Image src={`http://localhost:5000/uploads/${produto.imagemName}`} alt={produto.nome} />
           <TextContainer>
-            <Title>{character.nome}</Title>
-            <Text>{character.texto}</Text>
-            <Text>R${character.preco},00</Text>
+            <Title>Nome: {produto.nome}</Title>
+            <Text>Descrição: {produto.descricao}</Text>
+            <Text>R$ {produto.preco},00</Text>
             <Button onClick={handleBack}>Voltar</Button>
           </TextContainer>
         </Content>

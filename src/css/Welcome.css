@@ -62,12 +62,7 @@
     font-size: 20px;
     color: white;
 }
-.paragrafo2:hover{
-    border: 1px solid white;
-    padding: 20px;
-    border-radius: 15px;
-    transition: 0.80s;
-}
+
 #title{
     text-align: center;
     margin: 10px;
@@ -78,12 +73,7 @@
     color: white;
     margin: 0 auto; 
 }
-.paragrafo:hover{
-    border: 1px solid white;
-    padding: 20px;
-    border-radius: 15px;
-    transition: 0.80s;
-}
+
 .box1 img{
     width: 300px;
     margin: 0 auto; 

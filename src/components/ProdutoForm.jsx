@@ -1,8 +1,8 @@
 import { useState, useRef } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
+// Estilização dos componentes usando styled-components
 const FormContainer = styled.div`
   position: relative;
   display: flex;
@@ -17,15 +17,12 @@ const FormContainer = styled.div`
   transition: all 0.3s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   animation: form-animation 0.5s ease-in-out;
-  width: 30%;
-  font-weight: 800;
+  max-width: 40%;
+  margin: 0 auto;
   @media (max-width: 768px) {
-    width: 80%;
-    left: 6%;
+    max-width: 90%;
+    margin: 20px auto;
   }
-  position: relative;
-  left: 34%;
-  top:20%
 `;
 
 const InputContainer = styled.div`
@@ -119,59 +116,62 @@ const CharCounter = styled.div`
   color: white;
 `;
 
-function ProdutoForm({ fetchProdutos }) {
-  const [nome, setNome] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [preco, setPreco] = useState('');
-  const [imagem, setImagem] = useState(null);
-  const [fileInputKey, setFileInputKey] = useState(Date.now());
-  const MAX_DESC_LENGTH = 500;
-  const formRef = useRef(null);
+function ProdutoForm({ onNewProduct }) {
+  const [nome, setNome] = useState(''); // Estado para o nome do produto
+  const [descricao, setDescricao] = useState(''); // Estado para a descrição do produto
+  const [preco, setPreco] = useState(''); // Estado para o preço do produto
+  const [image, setImagem] = useState(null); // Estado para a imagem do produto
+  const [fileInputKey, setFileInputKey] = useState(Date.now()); // Chave para forçar a atualização do input de arquivo
+  const MAX_DESC_LENGTH = 500; // Número máximo de caracteres para a descrição
+  const formRef = useRef(null); // Referência para o formulário
 
+  // Função para lidar com o envio do formulário
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append('nome', nome);
-    formData.append('texto', descricao);
-    formData.append('preco', preco);
-    formData.append('foto', imagem);
+    e.preventDefault(); // Previne o comportamento padrão de envio do formulário
+    const formData = new FormData(); // Cria um objeto FormData para enviar os dados do formulário
+    formData.append('nome', nome); // Adiciona o nome ao FormData
+    formData.append('descricao', descricao); // Adiciona a descrição ao FormData
+    formData.append('preco', preco); // Adiciona o preço ao FormData
+    formData.append('image', image); // Adiciona a imagem ao FormData
 
     try {
-      await axios.post(
-        'http://localhost:5000/api/produtos',
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
-        }
-      );
+      // Faz a requisição POST para enviar os dados para o servidor
+      await axios.post('http://localhost:5000/produtos', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Define o cabeçalho para indicar que é um formulário multipart
+        },
+      });
+      // Limpa os campos do formulário e atualiza a chave do input de arquivo para forçar a atualização
       setNome('');
       setDescricao('');
       setPreco('');
       setImagem(null);
       setFileInputKey(Date.now());
+      onNewProduct(); // Executa a função fornecida para notificar sobre a adição de um novo produto
     } catch (error) {
-      console.error('Erro ao enviar a produto', error);
+      console.error('Erro ao enviar o produto', error);
     }
   };
 
+  // Função para lidar com a mudança da imagem do produto
   const handleImageChange = (event) => {
-    setImagem(event.target.files[0]);
+    setImagem(event.target.files[0]); // Define a imagem selecionada no estado 'image'
   };
 
+  // Função para lidar com a mudança na descrição do produto
   const handleDescricaoChange = (e) => {
-    const texto = e.target.value;
+    const texto = e.target.value; // Obtém o texto da descrição
     if (texto.length <= MAX_DESC_LENGTH) {
-      setDescricao(texto);
+      setDescricao(texto); // Define a descrição no estado 'descricao' se estiver dentro do limite máximo de caracteres
     }
   };
 
   return (
     <FormContainer>
       <InputPlaceholder>Nome do Produto</InputPlaceholder>
-      <form onSubmit={handleSubmit} ref={formRef}>
+      <form onSubmit={handleSubmit} ref={formRef} encType="multipart/form-data">
         <InputContainer>
+          {/* Input para o nome do produto */}
           <InputFocus
             type="text"
             value={nome}
@@ -181,6 +181,7 @@ function ProdutoForm({ fetchProdutos }) {
           />
         </InputContainer>
         <InputContainer>
+          {/* Input para a descrição do produto */}
           <InputPlaceholderDesc>Descrição do Produto</InputPlaceholderDesc>
           <Input
             as="textarea"
@@ -188,11 +189,12 @@ function ProdutoForm({ fetchProdutos }) {
             onChange={handleDescricaoChange}
             required
           />
+          {/* Contador de caracteres restantes para a descrição */}
           <CharCounter>{MAX_DESC_LENGTH - descricao.length} caractere(s) restante(s)</CharCounter>
         </InputContainer>
-        
         <InputContainer>
-        <InputPlaceholder>Preço do Produto</InputPlaceholder>
+          {/* Input para o preço do produto */}
+          <InputPlaceholder>Preço do Produto</InputPlaceholder>
           <InputFocusNumber
             type="number"
             value={preco}
@@ -202,10 +204,12 @@ function ProdutoForm({ fetchProdutos }) {
           />
         </InputContainer>
         <InputContainer>
-        <InputPlaceholderDesc>Imagem do Produto</InputPlaceholderDesc>
-        <InputFocusFile type="file" key={fileInputKey} onChange={handleImageChange} required />
+          {/* Input para selecionar a imagem do produto */}
+          <InputPlaceholderDesc>Imagem do Produto</InputPlaceholderDesc>
+          <InputFocusFile type="file" key={fileInputKey} onChange={handleImageChange} required />
         </InputContainer>
         <ButtonContainer>
+          {/* Botão para submeter o formulário */}
           <Button type="submit">Cadastrar</Button>
         </ButtonContainer>
         <hr />
@@ -213,9 +217,5 @@ function ProdutoForm({ fetchProdutos }) {
     </FormContainer>
   );
 }
-
-ProdutoForm.propTypes = {
-  fetchProdutos: PropTypes.func.isRequired,
-};
 
 export default ProdutoForm;

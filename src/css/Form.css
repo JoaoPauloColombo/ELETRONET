@@ -1,63 +1,110 @@
-.contato{
+.contato {
     width: 80%;
     margin: auto;
     margin-bottom: 20px;
     border-radius: 10px;
-}
-.contato .row{
+  }
+  
+  .contato .row {
     display: flex;
-    background-color: #0296c3;
     flex-wrap: wrap;
     gap: 1rem;
     padding: 20px;
     width: 100%;
-}
-.contato .row form{
+    background-color: #0296c3;
+  }
+  
+  .contato .row form {
     flex: 1 1 45rem;
     padding: 5rem 2rem;
     text-align: center;
-}
-.contato .row h3{
+  }
+  
+  .contato .row h3 {
     text-transform: uppercase;
     font-size: 2rem;
     color: #fff;
     font-family: "Kanit", sans-serif;
-}
-.contato .row form .inputBox{
+  }
+  
+  .contato .row form .inputBox {
     display: flex;
     align-items: center;
     margin-top: 2rem;
-    margin-bottom: 2rem;    
-}
-.contato .row form .inputBox input{
+    margin-bottom: 2rem;
+  }
+  
+  .contato .row form .inputBox input {
     width: 100%;
     padding: 1rem;
     font-size: 1rem;
     color: black;
     background: none;
-}
-.contato .row form .inputBox input[type="text"]{
+  }
+  
+  .contato .row form .inputBox input[type="text"] {
     font-size: 20px;
-}
-
-.botao{
-    padding: 7  px;
+  }
+  
+  .botao {
+    padding: 7px;
     font-size: 1.2rem;
-    color:white;
+    color: white;
     background-color: #0296c3;
     cursor: pointer;
     border: 3px solid white;
     border-radius: 10px;
     width: 10%;
-}
-.btn:hover{
+  }
+  
+  .botao:hover {
     font-size: 20px;
-}
-@media (max-width:768px) {
-    .btn{
-        width: 30%;
-        border-radius: 10px;
+  }
+  
+  /* Tablet */
+  @media (max-width: 768px) {
+    .contato {
+      width: 90%;
     }
-
-
+  
+    .contato .row {
+      flex-direction: column;
     }
+  
+    .contato .row form {
+      padding: 2rem;
+    }
+  
+    .contato .row form .inputBox {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+  
+    .botao {
+      width: 30%;
+    }
+  }
+  
+  /* Smartphone */
+  @media (max-width: 480px) {
+    .contato {
+      width: 95%;
+    }
+  
+    .contato .row {
+      padding: 10px;
+    }
+  
+    .contato .row form {
+      padding: 1rem;
+    }
+  
+    .contato .row form .inputBox {
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+  
+    .botao {
+      width: 50%;
+    }
+  }

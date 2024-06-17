@@ -1,5 +1,5 @@
-import '../css/Welcome.css';
-import img1 from '../assets/img/imagem.png';
+import '../css/Welcome.css'
+import img1 from '../assets/images/welcome.png';
 
 function Welcome() {
   return (
@@ -9,7 +9,7 @@ function Welcome() {
           <h1 id="title">
             Bem vindo
           </h1>
-          <p className="paragrafo"> 
+          <p className="paragrafo">
             Bem-vindo à Eletronet, a sua parceira em tecnologia! Nossa plataforma inovadora simplifica o
             cadastro de produtos, tornando seus processos mais ágeis e eficientes. Junte-se a nós e descubra
             como podemos transformar o seu negócio.

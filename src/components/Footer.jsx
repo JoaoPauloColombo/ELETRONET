@@ -1,5 +1,5 @@
 import '../css/Footer.css'
-import Logo from '../assets/img/logo.png'
+import Logo from '../assets/images/logo.png'
 
 function App() {
 
@@ -64,27 +64,6 @@ function App() {
                     </li>
                 </ul>
             </div>
-        </div>
-        <div className="links">
-            <h1>Links Importantes</h1>
-            <a href="#">Acompanhar pedidos</a>
-            <a href="#">Minha conta</a>
-            <a href="#">Comprar</a>
-            <a href="#">Todas as Lojas</a>
-        </div>
-        <div className="categorias">
-            <h1>Principais Categorias</h1>
-            <a href="#">Cameras, Audio & Video</a>
-            <a href="#">Computadores & Acessórios </a>
-            <a href="#">Mobiles & Tablets</a>
-            <a href="#">Celulares & Video Games</a>
-        </div>
-        <div className="verifique">
-            <h1>Verifique</h1>
-            <a href="#">Perguntas Frequentes</a>
-            <a href="#">Contate-nos</a>
-            <a href="#">Termos e Condiçôes</a>
-
         </div>
     </footer>
   )

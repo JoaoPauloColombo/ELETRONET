@@ -1,105 +1,61 @@
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
-const MainTitle = styled.h1`
-  text-align: center;
-  margin: 40px 0;
-  color: white;
-`;
+import '../css/ProdutoCard.css'; // Importa o arquivo de estilos para os cards de produto
 
-const Container = styled.div`
-  max-width: 1000px;
-  margin: auto;
-  padding: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-`;
+function ProdutosCard() {
+  const [produtos, setProdutos] = useState([]); // Estado para armazenar os produtos obtidos da API
+  const navigate = useNavigate(); // Hook useNavigate para navegação programática
 
-const ImageCard = styled.div`
-  width: calc(23.333% - 20px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 5px solid #089cc9;
-  border-radius: 10%;
-  background-color:white;
-`;
+  // Hook useEffect para buscar os produtos ao montar o componente
+  useEffect(() => {
+    fetchProdutos(); // Função para buscar os produtos da API
+  }, []);
 
-const StyledImage = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 10%;
-  object-fit: cover;
-  margin-bottom: 10px;
-  margin-top:10px;
-`;
+  // Função assíncrona para buscar os produtos da API
+  const fetchProdutos = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/produtos'); // Faz a requisição GET para obter os produtos
+      if (response.data.length > 0) {
+        setProdutos(response.data); // Atualiza o estado 'produtos' com os dados obtidos da API
+      } else {
+        setProdutos([]); // Define um array vazio caso não haja produtos na resposta
+      }
+    } catch (error) {
+      console.error('Erro ao buscar produtos', error); // Exibe um erro caso ocorra um problema na requisição
+    }
+  };
 
-const SubTitle = styled.h2`
-  color: #089cc9;
-  text-align: center;
-  margin: 0 0 5px 0;
-`;
-const Number = styled.h2`
-  color: #089cc9;
-  text-align: center;
-  margin: 0 0 5px 0;
-  font-size:20px;
-`;
-
-const Button = styled.button`
-  width: 50%;
-  height:20%
-  padding: 10px 20px;
-  border: none;
-  margin-bottom:10px;
-  border-radius: 5px;
-  background: #089cc9;
-  color: #fff;
-  cursor: pointer;
-  &:hover {
-    background-color: #394c73;
-  }
-`;
-
-function ProdutosCard({ characters }) {
-  const navigate = useNavigate();
-
+  // Função para lidar com o clique no botão "Saiba Mais"
   const handleLearnMore = (id) => {
-    navigate(`/bio/${id}`);
+    navigate(`/bio/${id}`); // Navega para a rota específica do produto usando o hook useNavigate
   };
 
   return (
     <div>
-      <MainTitle>Produtos</MainTitle>
-      <Container>
-        {characters.map((character) => (
-          <ImageCard key={character.id}>
-            <StyledImage
-              src={`http://localhost:5000/uploads/${character.foto}`}
-              alt={character.nome}
+      <h1 className="main-title">Produtos</h1> {/* Título principal da página */}
+      <div className="container">
+        {/* Mapeia os produtos e renderiza um card para cada um */}
+        {produtos.map((produto) => (
+          <div key={produto.id} className="image-card">
+            {/* Imagem do produto */}
+            <img
+              src={`http://localhost:5000/uploads/${produto.imagemName}`} // URL da imagem baseada no nome fornecido pela API
+              alt={produto.nome} // Texto alternativo para acessibilidade
+              className="styled-image" // Classe para estilização da imagem
             />
-            <SubTitle>{character.nome}</SubTitle>
-            <Number>R${character.preco},00</Number>
-            
-            <Button onClick={() => handleLearnMore(character.id)}>Saiba Mais</Button>
-          </ImageCard>
+            {/* Nome do produto */}
+            <h2 className="sub-title">{produto.nome}</h2>
+            {/* Preço do produto */}
+            <h2 className="number">R${produto.preco},00</h2>
+            {/* Botão "Saiba Mais" que chama a função handleLearnMore ao ser clicado */}
+            <button onClick={() => handleLearnMore(produto.id)} className="button">Saiba Mais</button>
+          </div>
         ))}
-      </Container>
+      </div>
     </div>
   );
 }
-
-ProdutosCard.propTypes = {
-  characters: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      nome: PropTypes.string.isRequired,
-      foto: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-};
 
 export default ProdutosCard;

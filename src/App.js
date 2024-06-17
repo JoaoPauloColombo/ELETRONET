@@ -8,10 +8,17 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/produtos" element={<Produtos />}/>
-        <Route path="/cadastro" element={<Cadastro />}/>
-        <Route path="/bio/:id" element={<Bio />}/>
+        {/* Rota para a página inicial */}
+        <Route path="/" element={<Home />} />
+
+        {/* Rota para a página de produtos */}
+        <Route path="/produtos" element={<Produtos />} />
+
+        {/* Rota para a página de cadastro */}
+        <Route path="/cadastro" element={<Cadastro />} />
+
+        {/* Rota dinâmica para exibir detalhes de um produto específico */}
+        <Route path="/bio/:id" element={<Bio />} />
       </Routes>
     </Router>
   );
