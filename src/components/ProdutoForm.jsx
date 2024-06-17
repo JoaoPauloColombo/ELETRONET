@@ -166,6 +166,17 @@ function ProdutoForm({ onNewProduct }) {
     }
   };
 
+  // Função para lidar com a mudança no preço do produto
+  const handlePrecoChange = (e) => {
+    const precoValue = e.target.value;
+    if (precoValue >= 0) {
+      setPreco(precoValue);
+    } else {
+      setPreco('');
+      alert('Valor negativo não permitido!');
+    }
+  };
+
   return (
     <FormContainer>
       <InputPlaceholder>Nome do Produto</InputPlaceholder>
@@ -198,7 +209,7 @@ function ProdutoForm({ onNewProduct }) {
           <InputFocusNumber
             type="number"
             value={preco}
-            onChange={(e) => setPreco(e.target.value)}
+            onChange={handlePrecoChange}
             required
             autoFocus
           />

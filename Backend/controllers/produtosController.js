@@ -69,6 +69,10 @@ const produtoController = {
       }
       const imageData = req.file.buffer;
       const { nome, descricao, preco } = req.body;
+      if (preco <= 0) {
+        res.status(400).json({ message: 'Preço deve ser um valor positivo' });
+        return;
+      }
       // Cria um novo produto com as informações extraídas
       const produto = new Produto(nextId, nome, descricao, preco, imagemName);
       produtos.push(produto);
@@ -96,7 +100,12 @@ const produtoController = {
         // Atualiza os campos do produto
         produto.nome = req.body.nome;
         produto.descricao = req.body.descricao;
-        produto.preco = req.body.preco;
+        const preco = req.body.preco;
+        if (preco <= 0) {
+          res.status(400).json({ message: 'Preço deve ser um valor positivo' });
+          return;
+        }
+        produto.preco = preco;
 
         // Se uma nova imagem for fornecida, atualiza a imagem
         if (req.file) {
