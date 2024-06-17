@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "id": 4,
+    "nome": "asdadsdas",
+    "descricao": "dasddas",
+    "preco": "12312",
+    "imagemName": "img.jpeg"
+  }
+]
