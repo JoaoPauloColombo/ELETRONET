@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "nome": "teste",
-    "descricao": "teste",
-    "preco": "123",
-    "imagemName": "Captura de tela_16-6-2024_235656_localhost.jpeg"
+    "nome": "nome ",
+    "descricao": "descricao",
+    "preco": "15,00",
+    "imagemName": "img.jpeg"
   }
 ]
