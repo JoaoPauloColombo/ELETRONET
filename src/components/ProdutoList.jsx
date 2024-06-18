@@ -70,7 +70,7 @@ function ProdutoList({ refresh, setRefresh }) {
                     <ProdutoInfo>
                         <ProdutoNome>{produto.nome}</ProdutoNome>
                         <ProdutoDescricao>Descrição: {produto.descricao}</ProdutoDescricao>
-                        <ProdutoDescricao>R${produto.preco},00</ProdutoDescricao>
+                        <ProdutoDescricao>R${produto.preco}</ProdutoDescricao>
                         <Actions>
                             <ActionButton onClick={() => handleDelete(produto.id)}>Deletar</ActionButton>
                             <ActionButton onClick={() => handleEdit(produto.id)}>Editar</ActionButton>

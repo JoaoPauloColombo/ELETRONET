@@ -48,7 +48,7 @@ function ProdutosCard() {
             {/* Nome do produto */}
             <h2 className="sub-title">{produto.nome}</h2>
             {/* Preço do produto */}
-            <h2 className="number">R${produto.preco},00</h2>
+            <h2 className="number">R${produto.preco}</h2>
             {/* Botão "Saiba Mais" que chama a função handleLearnMore ao ser clicado */}
             <button onClick={() => handleLearnMore(produto.id)} className="button">Saiba Mais</button>
           </div>

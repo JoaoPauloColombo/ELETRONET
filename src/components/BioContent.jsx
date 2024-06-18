@@ -102,7 +102,7 @@ function BioContent() {
           <TextContainer>
             <Title>Nome: {produto.nome}</Title>
             <Text>Descrição: {produto.descricao}</Text>
-            <Text>R$ {produto.preco},00</Text>
+            <Text>R$ {produto.preco}</Text>
             <Button onClick={handleBack}>Voltar</Button>
           </TextContainer>
         </Content>
