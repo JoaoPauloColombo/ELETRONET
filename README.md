@@ -47,15 +47,11 @@ Para configurar e executar o projeto localmente, siga estas etapas:
    cd ELETRONET
    npm install
    ```
-3. Instale as dependencias necessarias:
-   ```
-   npm i
-   ```
-4. Inicie o terminal na pasta do projeto, e rode os comandos para iniciar o Back-end e front end.
+3. Inicie o terminal na pasta do projeto, e rode os comandos para iniciar o Back-end e front end.
    ```
    cd ELETRONET(caso já não abra na pasta)
    npm start
    cd Backend
    npm run dev
    ```
-5. Abra o navegador e acesse `http://localhost:3000` para visualizar o site.
+4. Abra o navegador e acesse `http://localhost:3000` para visualizar o site.
