@@ -1,4 +1,4 @@
-#SENAI Cotia - "Ricardo Lerner"
+# SENAI Cotia - "Ricardo Lerner"
 
 <p align="center">
 <a href= "https://www.fecap.br/"><img src="https://www.conre3.org.br/portal/wp-content/uploads/2024/05/logo-senai-1.png" alt="SENAI Cotia - "Ricardo Lerner" border="0"></a>
