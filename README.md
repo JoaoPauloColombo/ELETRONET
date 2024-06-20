@@ -8,11 +8,9 @@
 
 ## Integrantes: <a href="" >João Paulo Souza Colombo</a>, <a href="https://github.com/Giovanna-Cynthia" >Giovanna Cynthia</a>, <a href="https://github.com/vitorsdev20" >Vitor de sousa</a>, <a href="https://github.com/RogerDevL" >Roger Lemos</a>, <a href="https://github.com/Victor-Santos-Silva" >Victor dos Santos</a>
 
-## Professores Orientadores: <a href="https://github.com/Arthur-Rosa" >Arthur Rosa</a>,<a href="#" >Ive Balbino</a>
+## Professores Orientadores: <a href="https://www.linkedin.com/in/ive-balbino-462a67239/" >Ive Balbino</a>
 
-# Getting Started with Create React App
-
-## Descrição
+# Descrição
 
  Em sala de aula, criamos uma plataforma tecnológica e inovadora destinada a empresas, para facilitar o cadastro e a gestão de produtos. Este projeto visa otimizar processos empresariais, proporcionando uma interface intuitiva e funcional, resultando em maior eficiência e organização.
 
